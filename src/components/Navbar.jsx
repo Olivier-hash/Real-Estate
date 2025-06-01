@@ -16,8 +16,12 @@ function Navbar(){
             <img src={assets.menu_icon} className='md:hidden w-7' alt="" />
         </div>
         {/* ---Mobile-menu---- */}
-        <div className='md:hidden fixed w-full right-0 top-0 bottom-0 overflow-hidden'>
-            <ul>
+        <div className='container md:hidden fixed w-full  right-0 top-0 bottom-0 overflow-hidden bg-white transition-sall'>
+            {/* icon */}
+            <div className='flex justify-end p-6'>
+                <img src={assets.cross_icon} alt="" className='w-6' />
+            </div>
+            <ul className='flex flex-col items-center gap-2 mt'>
                 <a href="#Header" className='px-4 py-2 rounded-full inline-block'>Home</a>
                 <a href="#About" className='px-4 py-2 rounded-full inline-block'>About</a>
                 <a href="#Project" className='px-4 py-2 rounded-full inline-block'>Projects</a>
