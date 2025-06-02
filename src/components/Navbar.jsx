@@ -15,15 +15,16 @@ function Navbar(){
                 <a href="#Header" className='cursor-pointer hover:text-gray-400'>Testimonies</a>
             </ul>
             <button className='hidden md:block cursor-pointer text-white hover:bg-white rounded-full px-6 py-2 hover:text-gray-400'>Sign up</button>
-            <img src={assets.menu_icon} className='md:hidden w-7 cursor-pointer' alt="" />
+            <img onClick={()=> setShowMobileMenu(true)} src={assets.menu_icon} className='md:hidden w-7 cursor-pointer' alt="" />
         </div>
         {/* ---Mobile-menu---- */}
-        <div className={`container md:hidden ${showMobileMenu ? 'fixed w-full' : 'h-0 w-0'} right-0 top-0 bottom-0 overflow-hidden bg-white transition-all`}>
+        <div className={`container md:hidden ${showMobileMenu ? 'fixed w-full' : 'h-0 w-0'} right-0 top-0 bottom-0 overflow-hidden bg-white`}>
             {/* icon */}
             <div className='flex justify-end p-6 cursor-pointer'>
-                <img src={assets.cross_icon} alt="" className='w-6' />
+                <img onClick={()=> setShowMobileMenu(false)} src={assets.cross_icon} alt="" className='w-6' />
             </div>
-            <ul className='flex flex-col items-center gap-2 mt'>
+            {/* font-bold or font-medium */}
+            <ul className='flex flex-col items-center gap-2 mt-2 bold text-lg font-bold'>
                 <a href="#Header" className='px-4 py-2 rounded-full inline-block'>Home</a>
                 <a href="#About" className='px-4 py-2 rounded-full inline-block'>About</a>
                 <a href="#Project" className='px-4 py-2 rounded-full inline-block'>Projects</a>
