@@ -31,6 +31,7 @@ function About() {
                     we are a leading real estate company with over decade  of exprerience in dleivering br exceptional properties.
                      Our commitment to qualify and customer satisfaction has earned us a reputation for excellence in the industry..
                 </p>
+                <button className='bg-blue-600 text-white px-6 py-3 rounded'>Learn more</button>
             </div>
         </div>
     </div>
