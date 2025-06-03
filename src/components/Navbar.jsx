@@ -38,10 +38,10 @@ function Navbar(){
             </div>
             {/* font-bold or font-medium */}
             <ul className='flex flex-col items-center gap-2 mt-2 bold text-lg font-bold'>
-                <a href="#Header" className='px-4 py-2 rounded-full inline-block'>Home</a>
-                <a href="#About" className='px-4 py-2 rounded-full inline-block'>About</a>
-                <a href="#Project" className='px-4 py-2 rounded-full inline-block'>Projects</a>
-                <a href="#Testimony" className='px-4 py-2 rounded-full inline-block'>Testimonies</a>
+                <a onClick={()=> setShowMobileMenu(false)} href="#Header" className='px-4 py-2 rounded-full inline-block'>Home</a>
+                <a onClick={()=> setShowMobileMenu(false)} href="#About" className='px-4 py-2 rounded-full inline-block'>About</a>
+                <a onClick={()=> setShowMobileMenu(false)} href="#Project" className='px-4 py-2 rounded-full inline-block'>Projects</a>
+                <a onClick={()=> setShowMobileMenu(false)} href="#Testimony" className='px-4 py-2 rounded-full inline-block'>Testimonies</a>
             </ul>
         </div>
     </div>
