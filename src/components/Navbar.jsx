@@ -1,8 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {assets} from '../assets/assets'
 
 function Navbar(){
     const [showMobileMenu, setShowMobileMenu] = useState(false)
+
+
+    useEffect(()=>{
+        if(showMobileMenu){
+            document.body.style.overflow = 'hidden';
+        }else{
+            document.body.style.overflow = 'auto';
+        }
+         // Cleanup: Re-enable body scroll when the component unmounts or menu closes
+        return () => {
+            document.body.style.overflow = 'auto';
+        }
+    },[showMobileMenu])
 
   return (
     <div className=' absolute top-0 left-0  w-full z-10'>
