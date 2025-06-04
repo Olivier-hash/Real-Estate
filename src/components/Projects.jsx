@@ -1,5 +1,5 @@
 import React from 'react'
-import {assets} from '../assets/assets'
+import {assets, projectsData} from '../assets/assets'
 function Projects() {
   return (
     <div className='container  mx-auto  py-4 pt-20 px-6 md:px-20 lg:px-32 w-full overflow-hidden' id='Projects'>
@@ -17,6 +17,17 @@ function Projects() {
           <button className='p-3 bg-gray-200 rounded mr-2' aria-label='Previous project'>
             <img src={assets.right_arrow} alt="Next" />
           </button>
+        </div>
+
+        {/* project slider container */}
+        <div>
+          <div>
+            {projectsData.map((project, index)=>(
+              <div  key={index}>
+                <img src={project.image} alt={project.title} />
+              </div>
+            ))}
+          </div>
         </div>
     </div>
   )
