@@ -1,6 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {assets, projectsData} from '../assets/assets'
+
+
 function Projects() {
+
+  // scrolling functionality for slider buttons
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [cardsToShow, setCardsToShow] = useState(1);
+
+  const nextProject = ()=> {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % projectsData.length)
+  }
+    const prevProject = ()=> {
+    setCurrentIndex((prevIndex) => prevIndex === 0 ? projectsData.length - 1 : prevIndex - 1)
+  }
+
   return (
     <div className='container  mx-auto  py-4 pt-20 px-6 md:px-20 lg:px-32 w-full overflow-hidden' id='Projects'>
         <h1 className='text-center justify-end mb-5 text-2xl sm:text-4xl font-bold mb-2'>Projects 
