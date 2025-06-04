@@ -20,11 +20,18 @@ function Projects() {
         </div>
 
         {/* project slider container */}
-        <div>
-          <div>
+        <div className='overflow-hidden '>
+          <div className='flex gap-8 transition-transform duration-500 ease-in-out'>
             {projectsData.map((project, index)=>(
-              <div  key={index}>
+              <div  key={index} className='relative flex-schrink-0 w-full sm:w-1/4'>
                 <img src={project.image} alt={project.title} />
+                <div className='absolute left-0 right-0 bottom-5 flex justify-center'>
+                  <div className='inline-block bg-white w-3/4 px-4 py-2 shadow-md'>
+                       <h2 className='text-xl font-semibold text-gray'>
+                            {project.title}
+                      </h2>               
+                  </div>
+                </div>
               </div>
             ))}
           </div>
