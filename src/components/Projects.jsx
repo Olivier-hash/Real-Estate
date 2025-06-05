@@ -12,6 +12,8 @@ function Projects() {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % projectsData.length)
   }
     const prevProject = ()=> {
+      // if ur at the first project(index 0) it jumps to the last project
+      // rember array are zero indexed that's why we use projectData.length -1
     setCurrentIndex((prevIndex) => prevIndex === 0 ? projectsData.length - 1 : prevIndex - 1)
   }
 
@@ -25,17 +27,24 @@ function Projects() {
         {/* slider buttons */}
 
         <div className='flex justify-end items-center mb-8'>
-          <button className='p-3 bg-gray-200 rounded mr-2' aria-label='Previous project'>
+
+          <button onClick={prevProject}
+            className='p-3 bg-gray-200 rounded mr-2' aria-label='Previous project'>
             <img src={assets.left_arrow} alt="previous" />
           </button>
-          <button className='p-3 bg-gray-200 rounded mr-2' aria-label='Previous project'>
+
+          <button onClick={{nextProject}}
+            className='p-3 bg-gray-200 rounded mr-2' aria-label='Previous project'>
             <img src={assets.right_arrow} alt="Next" />
           </button>
+
         </div>
 
         {/* project slider container */}
         <div className='overflow-hidden '>
-          <div className='flex gap-8 transition-transform duration-500 ease-in-out'>
+          <div className='flex gap-8 transition-transform duration-500 ease-in-out'
+          style={{transform: `translateX(-${(currentIndex * 100) / cardsToShow}%)`}}
+          >
             {projectsData.map((project, index)=>(
               <div  key={index} className='relative flex-shrink-0 w-full sm:w-1/4'>
                 <img src={project.image} alt={project.title} className='w-full h-auto mb-14'/>
