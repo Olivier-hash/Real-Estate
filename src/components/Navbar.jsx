@@ -24,8 +24,8 @@ function Navbar(){
             <ul className='hidden md:flex text-white space-x-6'>
                 <a href="#Header" className='cursor-pointer hover:text-gray-400'>Home</a>
                 <a href="#About" className='cursor-pointer hover:text-gray-400'>About</a>
-                <a href="#Project" className='cursor-pointer hover:text-gray-400'>Projects</a>
-                <a href="#Testimony" className='cursor-pointer hover:text-gray-400'>Testimonies</a>
+                <a href="#Projects" className='cursor-pointer hover:text-gray-400'>Projects</a>
+                <a href="#Testimonies" className='cursor-pointer hover:text-gray-400'>Testimonies</a>
             </ul>
             <button className='hidden md:block cursor-pointer text-white hover:bg-white rounded-full px-6 py-2 hover:text-gray-400'>Sign up</button>
             <img onClick={()=> setShowMobileMenu(true)} src={assets.menu_icon} className='md:hidden w-7 cursor-pointer' alt="" />
