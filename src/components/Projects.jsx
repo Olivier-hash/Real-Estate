@@ -22,6 +22,8 @@ function Projects() {
      //Event listener to update cardsToshow on window resize
 
      window.addEventListener('resize', updateCardsToShow);
+
+     // Cleanup function to remove the event Listener
      return() =>{
       window.removeEventListener('resize', updateCardsToShow)
      }
