@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {assets, projectsData} from '../assets/assets'
 
 
@@ -8,13 +8,34 @@ function Projects() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardsToShow, setCardsToShow] = useState(1);
 
+
+  useEffect(()=>{
+    const updateCardsToShow = ()=> {
+         if(window.innerWidth >= 1024) {   // for large screens
+            setCardsToShow(projectsData.length);
+         }else{
+            setCardsToShow(1)
+         };      
+    };
+     updateCardsToShow();
+
+     //Event listener to update cardsToshow on window resize
+
+     window.addEventListener('resize', updateCardsToShow);
+     return() =>{
+      window.removeEventListener('resize', updateCardsToShow)
+     }
+  },[])
+
+
+  // function to handle next and previous project navigation
+
   const nextProject = ()=> {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % projectsData.length)
   }
     const prevProject = ()=> {
-      // if ur at the first project(index 0) it jumps to the last project
-      // rember array are zero indexed that's why we use projectData.length -1
-    setCurrentIndex((prevIndex) => prevIndex === 0 ? projectsData.length - 1 : prevIndex - 1)
+    setCurrentIndex((prevIndex) => prevIndex === 0 ? projectsData.length - 1 : prevIndex - 1)    // if ur at the first project(index 0) it jumps to the last project
+                                                                                                // rember array are zero indexed that's why we use projectData.length -1
   }
 
   return (
@@ -33,7 +54,7 @@ function Projects() {
             <img src={assets.left_arrow} alt="previous" />
           </button>
 
-          <button onClick={{nextProject}}
+          <button onClick={nextProject}
             className='p-3 bg-gray-200 rounded mr-2' aria-label='Previous project'>
             <img src={assets.right_arrow} alt="Next" />
           </button>
@@ -42,6 +63,7 @@ function Projects() {
 
         {/* project slider container */}
         <div className='overflow-hidden '>
+
           <div className='flex gap-8 transition-transform duration-500 ease-in-out'
           style={{transform: `translateX(-${(currentIndex * 100) / cardsToShow}%)`}}
           >
