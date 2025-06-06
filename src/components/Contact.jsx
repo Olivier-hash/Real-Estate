@@ -21,11 +21,14 @@ function Contact() {
     const data = await response.json();
 
     if (data.success) {
-      setResult("Form Submitted Successfully");
+      setResult("");  
+      // Alert the user
+      alert("form submitted successfully")
       event.target.reset();
     } else {
       console.log("Error", data);
-      setResult(data.message);
+      alert(data.message)
+      setResult("");
     }
   };
 
@@ -63,7 +66,9 @@ function Contact() {
                     <textarea className='w-full border border-gray-300 rounded py-3 px-4 mt-2 h-48 '
                      name="Message" placeholder='Message' required></textarea>
                 </div>
-                <button className='bg-blue-600 text-white py-2 px-12 mb-10'>Send Message</button>
+                <button className='bg-blue-600 text-white py-2 px-12 mb-10'>
+                   {result ? result : "Send Message"} 
+                </button>
 
             </form>
     </div>
