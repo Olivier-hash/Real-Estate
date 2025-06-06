@@ -62,7 +62,7 @@ function Contact() {
 
                 </div>
                 {/* text message */}
-                <div>
+                <div className='text-left'>
                     Message
                     <textarea className='w-full border border-gray-300 rounded py-3 px-4 mt-2 h-48 '
                      name="Message" placeholder='Message' required></textarea>
