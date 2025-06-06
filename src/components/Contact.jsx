@@ -1,4 +1,5 @@
 import React from 'react'
+import { toast } from 'react-toastify';
 
 function Contact() {
   
@@ -22,12 +23,12 @@ function Contact() {
 
     if (data.success) {
       setResult("");  
-      // Alert the user
-      alert("form submitted successfully")
+      // toastify notification
+      toast.success("form submitted successfully")
       event.target.reset();
     } else {
       console.log("Error", data);
-      alert(data.message)
+      toast.error(data.message)
       setResult("");
     }
   };
